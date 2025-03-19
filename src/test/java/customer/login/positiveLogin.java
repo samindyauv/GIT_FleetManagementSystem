@@ -18,18 +18,18 @@ public class positiveLogin extends baseTest {
 
     @BeforeMethod
     public void setUp() throws IOException, InterruptedException {
-        ExtentReportManager.startTest("Positive Login Test", "Login with valid credentials");
+        ExtentReportManager.startTest("Positive Test Case for User Login with Valid Credentials", "<b>Login with valid credentials</b>");
         loadUrl();
-        ExtentReportManager.logInfo("Opened the application URL");
+        ExtentReportManager.testSteps("<b><font color='blue'>Opened the application URL</font></b>");
 
         webSteps.login();
-        ExtentReportManager.logInfo("Entered valid credentials and clicked login");
+        ExtentReportManager.testSteps("Entered valid credentials and clicked login");
         webSteps.waiting();
     }
 
     @Test()
     public void loginWithValidCredentials() throws InterruptedException {
-        ExtentReportManager.logInfo("Verifying login success...");
+        ExtentReportManager.testSteps("Verifying login success...");
 
         boolean urlVerification = driver.getCurrentUrl().contains("live-tracking");
         Assert.assertTrue(urlVerification, "Expecting login success but not navigated to dashboard");
@@ -44,9 +44,9 @@ public class positiveLogin extends baseTest {
     @AfterMethod
     public void tearDownTest(ITestResult result) {
         if (result.getStatus() == ITestResult.FAILURE) {
-            ExtentReportManager.logFail("❌ Test failed: " + result.getThrowable().getMessage());
+            ExtentReportManager.logFail("❌ <b><font color='red'> FAILED : </font></b>" + result.getThrowable().getMessage());
         } else {
-            ExtentReportManager.logPass("✅ Test passed.");
+            ExtentReportManager.logPass("✅ <b><font color='green'> PASSED </font></b>");
         }
 
         // Capture screenshot for both passed and failed tests

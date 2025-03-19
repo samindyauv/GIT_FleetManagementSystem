@@ -35,7 +35,7 @@ public class ExtentReportManager {
             browserName = browser;
             ExtentSparkReporter sparkReporter = new ExtentSparkReporter(REPORT_PATH);
             sparkReporter.config().setDocumentTitle("Automation Test Report");
-            sparkReporter.config().setReportName("GCEC GIT - Customer");
+            sparkReporter.config().setReportName("GlobaliTrack Vehicle Tracking System");
             sparkReporter.config().setTheme(Theme.STANDARD);
 
             extent = new ExtentReports();
@@ -68,7 +68,7 @@ public class ExtentReportManager {
     }
 
     // Log Info
-    public static void logInfo(String message) {
+    public static void testSteps(String message) {
         if (currentTest != null) {
             currentTest.info(message);
         }
@@ -96,7 +96,7 @@ public class ExtentReportManager {
                 String screenshotPath = SCREENSHOT_PATH + result.getName() + ".png";
                 FileUtils.copyFile(screenshot, new File(screenshotPath));
 
-                currentTest.fail("🐞 Bug Screenshot", MediaEntityBuilder.createScreenCaptureFromPath("./screenshots/" + result.getName() + ".png").build());
+                currentTest.fail("🐞 <b><font color='grey'>Bug Screenshot</font></b>", MediaEntityBuilder.createScreenCaptureFromPath("./screenshots/" + result.getName() + ".png").build());
             } catch (IOException e) {
                 e.printStackTrace();
             }

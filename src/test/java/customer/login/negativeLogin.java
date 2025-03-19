@@ -12,16 +12,16 @@ import java.io.IOException;
 public class negativeLogin extends baseTest {
     @BeforeSuite
     public void setupReport() {
-        String browser = "Chrome"; // Change this dynamically if needed
-        ExtentReportManager.initReport(browser); // Pass the browser name
+        String browser = "Chrome";
+        ExtentReportManager.initReport(browser);
     }
 
     @BeforeMethod
     public void setUp() throws IOException, InterruptedException {
         ExtentReportManager.startTest("Negative Login Test", "Login with invalid credentials");
         loadUrl();
-        ExtentReportManager.logInfo("Opened the application URL");
-        ExtentReportManager.logInfo("Entered invalid credentials and clicked login");
+        ExtentReportManager.testSteps("Opened the application URL");
+        ExtentReportManager.testSteps("Entered invalid credentials and clicked login");
         webSteps.waiting();
     }
 
@@ -47,15 +47,16 @@ public class negativeLogin extends baseTest {
     @Name("Negative Login Test Cases")
     public void loginWithInvalidCredentials(String email, String password, String expValidation) throws InterruptedException {
 
-        ExtentReportManager.logInfo("Attempting login with:");
-        ExtentReportManager.logInfo("Email: " + (email.isEmpty() ? "[Empty]" : email));
-        ExtentReportManager.logInfo("Password: " + (password.isEmpty() ? "[Empty]" : password));
+        ExtentReportManager.testSteps("Attempting login with:"+ expValidation);
+        //ExtentReportManager.
+        ExtentReportManager.testSteps("Email: " + (email.isEmpty() ? "[Empty]" : email));
+        ExtentReportManager.testSteps("Password: " + (password.isEmpty() ? "[Empty]" : password));
 
         webSteps.type(email,"customerEmailField");
         webSteps.type(password,"customerPasswordField");
         webSteps.click("customerLoginButton");
 
-        ExtentReportManager.logInfo("Checking expected validation: " + expValidation);
+        ExtentReportManager.testSteps("Checking expected validation: " + expValidation);
 
         switch (expValidation) {
             case "Email is required" -> {
@@ -87,7 +88,7 @@ public class negativeLogin extends baseTest {
             case "Invalid" -> {
                 ExtentReportManager.logPass("Invalid credentials detected as expected.");
             }
-            default -> ExtentReportManager.logInfo("⚠️ Unknown validation case encountered.");
+            default -> ExtentReportManager.testSteps("⚠️ Unknown validation case encountered.");
         }
     }
 
@@ -100,15 +101,14 @@ public class negativeLogin extends baseTest {
             ExtentReportManager.logPass("✅ Test passed.");
         }
 
-        // Capture screenshot for both passed and failed tests
         ExtentReportManager.captureScreenshot(driver, result);
         tearDown();
     }
 
     @AfterSuite
     public void finalizeReport() {
-        ExtentReportManager.flushReport(); // Ensures the report is generated
-        ExtentReportManager.openReport();  // Opens the report automatically
+        ExtentReportManager.flushReport();
+        ExtentReportManager.openReport();
     }
 
 }
