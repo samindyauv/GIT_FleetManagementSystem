@@ -4,6 +4,7 @@
     <test name="GCEC-GIT-Customer">
         <classes>
             <class name="customer.login.positiveLogin"/>
+            <class name="customer.login.negativeLogin"/>
 
         </classes>
     </test>

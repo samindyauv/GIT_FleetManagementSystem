@@ -35,8 +35,8 @@ public class ExtentReportManager {
             browserName = browser;
             ExtentSparkReporter sparkReporter = new ExtentSparkReporter(REPORT_PATH);
             sparkReporter.config().setDocumentTitle("Automation Test Report");
-            sparkReporter.config().setReportName("GCEC GIT - Super Admin");
-            sparkReporter.config().setTheme(Theme.DARK);
+            sparkReporter.config().setReportName("GCEC GIT - Customer");
+            sparkReporter.config().setTheme(Theme.STANDARD);
 
             extent = new ExtentReports();
             extent.attachReporter(sparkReporter);
