@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="GIT - Fleet Management System">
+    <test name="GCEC-GIT-Customer">
+        <classes>
+            <class name="customer.login.positiveLogin"/>
+
+        </classes>
+    </test>
+</suite>
