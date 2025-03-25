@@ -4,7 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.Properties;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static dataProviders.repositoryFileReader.constructElement;
 import static dataProviders.repositoryFileReader.findElementRepo;
@@ -58,5 +61,37 @@ public class webSteps {
     // Common method to wait 1000ms
     public void waiting() throws InterruptedException {
         Thread.sleep(500);
+    }
+
+    public void select(String locator) throws InterruptedException, AWTException {
+        By xpath = constructElement(findElementRepo(locator));
+        click(locator);
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        waiting();
+    }
+
+    public void select2(String locator) throws InterruptedException, AWTException {
+        By xpath = constructElement(findElementRepo(locator));
+        click(locator);
+        Robot robot = new Robot();
+        robot.keyPress(KeyEvent.VK_DOWN);
+        robot.keyRelease(KeyEvent.VK_DOWN);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        waiting();
+    }
+    public String generateRandomProtocolName() {
+        String randomRoleName = "Role" + ThreadLocalRandom.current().nextInt(0, 100);
+        return randomRoleName;
+    }
+    public String generateRandomProtocolModelName() {
+        String randomRoleName = "Role" + ThreadLocalRandom.current().nextInt(0, 100);
+        return randomRoleName;
+    }
+    public String generateRandomProtocolProtocol() {
+        String randomRoleName = "Role" + ThreadLocalRandom.current().nextInt(0, 100);
+        return randomRoleName;
     }
 }

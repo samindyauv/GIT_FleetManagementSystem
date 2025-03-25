@@ -3,6 +3,7 @@ package utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import javax.swing.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
@@ -12,7 +13,6 @@ public class baseTest {
     protected WebDriver driver;
     protected String baseUrl;
     protected webSteps webSteps;
-
 
     public void loadUrl() throws InterruptedException, IOException {
         // Load the properties file

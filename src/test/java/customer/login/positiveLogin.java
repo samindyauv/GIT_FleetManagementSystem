@@ -12,18 +12,17 @@ public class positiveLogin extends baseTest {
 
     @BeforeSuite
     public void setupReport() {
-        String browser = "Chrome"; // Change this dynamically if needed
-        ExtentReportManager.initReport(browser); // Pass the browser name
+        ExtentReportManager.initReport();
     }
 
     @BeforeMethod
     public void setUp() throws IOException, InterruptedException {
-        ExtentReportManager.startTest("Positive Test Case for User Login with Valid Credentials", "<b>Login with valid credentials</b>");
+        ExtentReportManager.startTest("Positive Login Test", "<b>Login with valid credentials</b>");
         loadUrl();
-        ExtentReportManager.testSteps("<b><font color='blue'>Opened the application URL</font></b>");
+        ExtentReportManager.testSteps("Opened the application URL");
 
         webSteps.login();
-        ExtentReportManager.testSteps("Entered valid credentials and clicked login");
+        ExtentReportManager.testSteps("<b><font color='blue'>Test Case : </font></b>Verify that the user can successfully log in with valid email and password credentials");
         webSteps.waiting();
     }
 
@@ -37,7 +36,7 @@ public class positiveLogin extends baseTest {
         if (urlVerification) {
             ExtentReportManager.logPass("Navigated to dashboard successfully");
         } else {
-            ExtentReportManager.logFail("Failed to navigate to dashboard");
+            ExtentReportManager.logFail("Failed to navigate dashboard");
         }
     }
 
@@ -49,14 +48,13 @@ public class positiveLogin extends baseTest {
             ExtentReportManager.logPass("✅ <b><font color='green'> PASSED </font></b>");
         }
 
-        // Capture screenshot for both passed and failed tests
         ExtentReportManager.captureScreenshot(driver, result);
         tearDown();
     }
 
     @AfterSuite
     public void finalizeReport() {
-        ExtentReportManager.flushReport(); // Ensures the report is generated
-        ExtentReportManager.openReport();  // Opens the report automatically
+        ExtentReportManager.flushReport();
+        ExtentReportManager.openReport();
     }
 }

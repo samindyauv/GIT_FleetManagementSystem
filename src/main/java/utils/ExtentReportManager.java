@@ -30,9 +30,8 @@ public class ExtentReportManager {
     private static String browserName;
 
     // Initialize Extent Report
-    public static void initReport(String browser) {
+    public static void initReport() {
         if (extent == null) {
-            browserName = browser;
             ExtentSparkReporter sparkReporter = new ExtentSparkReporter(REPORT_PATH);
             sparkReporter.config().setDocumentTitle("Automation Test Report");
             sparkReporter.config().setReportName("GlobaliTrack Vehicle Tracking System");
@@ -50,7 +49,7 @@ public class ExtentReportManager {
             extent.setSystemInfo("Environment", "Staging");
             extent.setSystemInfo("OS", System.getProperty("os.name"));
             extent.setSystemInfo("Java Version", System.getProperty("java.version"));
-            extent.setSystemInfo("Browser", browserName);
+            //extent.setSystemInfo("Browser", browserName);
         }
     }
 
