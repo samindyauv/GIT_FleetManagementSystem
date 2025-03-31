@@ -4,7 +4,11 @@
     <test name="GCEC-GIT-Customer">
         <classes>
             <class name="customer.login.positiveLogin"/>
-
+            <class name="customer.protocol.positive.positiveAddProtocol"/>
+            <class name="customer.protocol.positive.positiveEditProtocol"/>
+            <class name="customer.protocol.positive.searchProtocol"/>
+            <class name="customer.protocol.positive.filterProtocol"/>
+            <class name="customer.protocol.positive.statusProtocol"/>
         </classes>
     </test>
 </suite>

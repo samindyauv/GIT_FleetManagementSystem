@@ -78,20 +78,22 @@ public class webSteps {
         Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_DOWN);
         robot.keyRelease(KeyEvent.VK_DOWN);
+        robot.keyPress(KeyEvent.VK_DOWN);
+        robot.keyRelease(KeyEvent.VK_DOWN);
         robot.keyPress(KeyEvent.VK_ENTER);
         robot.keyRelease(KeyEvent.VK_ENTER);
         waiting();
     }
     public String generateRandomProtocolName() {
-        String randomRoleName = "Role" + ThreadLocalRandom.current().nextInt(0, 100);
-        return randomRoleName;
+        String randomProtocolName = "Protocol_T" + ThreadLocalRandom.current().nextInt(0, 100);
+        return randomProtocolName;
     }
     public String generateRandomProtocolModelName() {
-        String randomRoleName = "Role" + ThreadLocalRandom.current().nextInt(0, 100);
-        return randomRoleName;
+        String randomProtocolModelName = "Model_T" + ThreadLocalRandom.current().nextInt(0, 100);
+        return randomProtocolModelName;
     }
     public String generateRandomProtocolProtocol() {
-        String randomRoleName = "Role" + ThreadLocalRandom.current().nextInt(0, 100);
-        return randomRoleName;
+        String randomProtocolProtocol = "GT_T" + ThreadLocalRandom.current().nextInt(0, 100);
+        return randomProtocolProtocol;
     }
 }
