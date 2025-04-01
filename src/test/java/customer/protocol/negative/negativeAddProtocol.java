@@ -32,7 +32,12 @@ public class negativeAddProtocol extends baseTest {
     public Object [][] negativeProtocolDataProvider(){
 
         String [][] data = {
-                {"Verify that the user cannot add protocol without a protocol name","","Testing_Model","Testing_Protocol","3G","Protocol name is required"},
+                {"Verify that the user cannot add protocol without protocol name","","Testing_Model","Testing_Protocol","3G","Protocol name is required"},
+                {"Verify that the user cannot add a protocol name that already exists","Protocol_1","Testing_Model","Testing_Protocol","3G","Error"},
+                {"Verify that the user cannot add protocol without model","Testing_Protocol","","Testing_Protocol","3G","Model is required"},
+                {"Verify that the user cannot add protocol without protocol","Testing_Protocol","Testing_Model","","3G","Protocol is required"},
+                {"Verify that the user cannot add a protocol that already exists","Testing_Protocol","Testing_Model","GT08","3G","Error"},
+                {"Verify that the user cannot add protocol without connectivity","Testing_Protocol","Testing_Model","Testing_Protocol","","Connectivity is required"},
         };
         return data;
     }
@@ -57,7 +62,19 @@ public class negativeAddProtocol extends baseTest {
 
         switch (expValidation) {
             case "Protocol name is required" -> {
-                Assert.assertEquals(webSteps.getText("protocolNameIsRequired"), "Protocol name is required", "Validation Failed");
+                Assert.assertEquals(webSteps.getText("protocolNameValidation"), "Protocol name is required", "Validation Failed");
+            }
+            case "Model is required" -> {
+                Assert.assertEquals(webSteps.getText("protocolModelValidation"), "Model is required", "Validation Failed");
+            }
+            case "Protocol is required" -> {
+                Assert.assertEquals(webSteps.getText("protocolProtocolValidation"), "Protocol is required", "Validation Failed");
+            }
+            case "Connectivity is required" -> {
+                Assert.assertEquals(webSteps.getText("protocolConnectivityValidation"), "Connectivity is required", "Validation Failed");
+            }
+            case "Error" -> {
+                Assert.assertEquals(webSteps.getText("protocolConnectivityValidation"), "Error", "Validation Failed");
             }
             case "Invalid" -> {
                 ExtentReportManager.logPass("Invalid credentials detected as expected.");

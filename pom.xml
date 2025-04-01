@@ -18,24 +18,18 @@
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-        <!--        <dependency>-->
-        <!--            <groupId>org.seleniumhq.selenium</groupId>-->
-        <!--            <artifactId>selenium-java</artifactId>-->
-        <!--            <version>${seleniumVersion}</version>-->
-        <!--        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.27.0</version>
+            <version>4.29.0</version>
         </dependency>
 
-
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.0.0</version>
-            <scope>compile</scope>
+            <version>7.10.2</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports-testng-adapter -->
@@ -84,14 +78,13 @@
             <artifactId>flatlaf</artifactId>
             <version>3.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.10.2</version>
+            <scope>compile</scope>
+        </dependency>
 
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.testng/testng &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.testng</groupId>-->
-<!--            <artifactId>testng</artifactId>-->
-<!--            <version>6.8.8</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
 
     </dependencies>
 
